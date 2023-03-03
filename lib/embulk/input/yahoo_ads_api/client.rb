@@ -7,8 +7,8 @@ module Embulk
     module YahooAdsApi
       class Client
         SERVERS = {
-          yss: "https://ads-search.yahooapis.jp/api/v7",
-          ydn: "https://ads-display.yahooapis.jp/api/v7",
+          yss: "https://ads-search.yahooapis.jp/api/v10",
+          ydn: "https://ads-display.yahooapis.jp/api/v10",
         }
 
         def initialize(account_id, token)
