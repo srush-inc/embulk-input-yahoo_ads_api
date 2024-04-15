@@ -7,8 +7,8 @@ module Embulk
     module YahooAdsApi
       class Client
         SERVERS = {
-          yss: "https://ads-search.yahooapis.jp/api/v10",
-          ydn: "https://ads-display.yahooapis.jp/api/v10",
+          yss: "https://ads-search.yahooapis.jp/api/v12",
+          ydn: "https://ads-display.yahooapis.jp/api/v12",
         }
 
         def initialize(account_id, token)
@@ -26,6 +26,7 @@ module Embulk
               content_type: :json,
               accept: :json,
               Authorization: "bearer #{@token}",
+              "x-z-base-account-id" => @account_id,
             }
           ).body
         end
@@ -50,6 +51,7 @@ module Embulk
                 content_type: :json,
                 accept: :json,
                 Authorization: "bearer #{@token}",
+                "x-z-base-account-id" => @account_id,
               },
               block_response: block,
             )
